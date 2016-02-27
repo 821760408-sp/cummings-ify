@@ -1,0 +1,12 @@
+{
+  "name": "assistive-technology",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery-ui": "^1.11.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
