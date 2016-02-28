@@ -44,3 +44,5 @@ node_modules
 # Optional REPL history
 .node_repl_history
 >>>>>>> 401a91f6cafe37b670af3accbaeba54432c74eb2
+
+.DS_Store

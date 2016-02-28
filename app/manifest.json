@@ -10,6 +10,7 @@
   "default_locale": "en",
   "background": {
     "scripts": [
+      "scripts/jquery.min.js",
       "scripts/chromereload.js",
       "scripts/background.js"
     ]
@@ -24,7 +25,9 @@
     "pageCapture",
     "storage",
     "webRequest",
-    "*://*.google.com/"
+    "*://*.google.com/",
+    "https://readability.com/*",
+    "tts"
   ],
   "options_ui": {
     "page": "options.html",
@@ -37,6 +40,7 @@
         "https://*/*"
       ],
       "js": [
+        "scripts/jquery.min.js",
         "scripts/contentscript.js"
       ],
       "run_at": "document_end",
@@ -48,7 +52,6 @@
       "19": "images/icon-19.png",
       "38": "images/icon-38.png"
     },
-    "default_title": "assistive technology",
-    "default_popup": "popup.html"
+    "default_title": "assistive technology"
   }
 }
