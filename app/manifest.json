@@ -1,5 +1,5 @@
 {
-  "name": "__MSG_appName__",
+  "name": "CUMMINGS-IFY",
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "__MSG_appDescription__",
@@ -52,6 +52,6 @@
       "19": "images/icon-19.png",
       "38": "images/icon-38.png"
     },
-    "default_title": "assistive technology"
+    "default_title": "CUMMINGS-IFY"
   }
 }

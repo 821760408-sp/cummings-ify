@@ -14,16 +14,16 @@ var words = []
 var lines = []
 
 chrome.runtime.onMessage.addListener(
-  function (request, sender, sendResponse) {
+  (request, sender, sendResponse) => {
     if (request.tabURL) {
       var tabURL = request.tabURL
       var xhr = new XMLHttpRequest()
       var path = apiPath + '?token=' + apiKey + '&url=' + tabURL
       xhr.open('GET', path, true)
-      xhr.onreadystatechange = function () {
+      xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           content = JSON.parse(xhr.responseText).content
-          // console.log(content)
+          console.log(content)
           eecummings(content)
         }
       }

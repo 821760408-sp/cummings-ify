@@ -1,9 +1,9 @@
 {
-  "name": "assistive-technology",
+  "name": "CUMMINGS-IFY",
   "private": true,
   "version": "0.0.0",
   "dependencies": {
-    "jquery-ui": "^1.11.4"
+    "jquery": "^2.2.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",

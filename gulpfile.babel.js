@@ -5,7 +5,10 @@ import del from 'del';
 import runSequence from 'run-sequence';
 import {stream as wiredep} from 'wiredep';
 
-const plugins = gulpLoadPlugins(); //modified: '$' -> 'plugins' to avoid conflicts with jQuery
+const plugins = gulpLoadPlugins({
+  pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
+	replaceString: /\bgulp[\-.]/
+}); //modified: '$' -> 'plugins' to avoid conflicts with jQuery
 
 gulp.task('extras', () => {
   return gulp.src([
@@ -79,6 +82,13 @@ gulp.task('chromeManifest', () => {
   .pipe(gulp.dest('dist'));
 });
 
+//referencing scripts/jquery.min.js instead; couldn't get this to work
+// gulp.task('bower', () => {
+//   return gulp.src(plugins.mainBowerFiles(), {base: 'app/bower_components'})
+//     .pipe(plugins.if('*.js', plugins.uglify()))
+//     .pipe(gulp.dest('dist'))
+// })
+
 gulp.task('babel', () => {
   return gulp.src('app/scripts.babel/**/*.js')
       .pipe(plugins.babel({
@@ -119,13 +129,13 @@ gulp.task('wiredep', () => {
 gulp.task('package', function () {
   var manifest = require('./dist/manifest.json');
   return gulp.src('dist/**')
-      .pipe(plugins.zip('assistive technology-' + manifest.version + '.zip'))
+      .pipe(plugins.zip('CUMMINGS-IFY-' + manifest.version + '.zip'))
       .pipe(gulp.dest('package'));
 });
 
 gulp.task('build', (cb) => {
   runSequence(
-    'lint', 'babel', 'chromeManifest',
+    'lint', 'babel', 'chromeManifest', /*'bower',*/
     ['html', 'images', 'extras'],
     'size', cb);
 });
